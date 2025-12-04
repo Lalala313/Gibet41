@@ -9,7 +9,49 @@
       Title="ProductPage" FontFamily="Comic Sans MS">
 
     <Grid>
-        <ListView Name="ProductListView" >
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid Background="#FFFFCC99" Margin="0"></Grid>
+        <Grid Grid.Row="1" Background="#FFFFCC99" Margin="0"></Grid>
+
+        <StackPanel Grid.Row="0" Orientation="Vertical" HorizontalAlignment="Left" VerticalAlignment="Center">
+            <StackPanel Orientation="Horizontal" Margin="5">
+                <TextBlock Text="Вы авторизованы как " FontSize="15"></TextBlock>
+                <TextBlock Name="FIOTB" FontSize="15" Width="350" Height="20"></TextBlock>
+            </StackPanel>
+            <StackPanel Name="RolePanel" Orientation="Horizontal" Margin="5">
+                <TextBlock Text="Роль: " FontSize="15"></TextBlock>
+                <TextBlock Name="RoleTB" FontSize="15" Width="150" Height="20"></TextBlock>
+            </StackPanel>
+        </StackPanel>
+
+      
+        <WrapPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center" Margin="10" VerticalAlignment="Center">
+            <TextBlock Name="TBCount" Text="0 из 0" FontSize="15" HorizontalAlignment="Left" VerticalAlignment="Center"></TextBlock>
+            <StackPanel Orientation="Vertical" Margin="10">
+                
+                <TextBlock Text="Поиск по названию" VerticalAlignment="Center" Width="150" FontSize="15"/>
+                <TextBox Name="TBoxSearch" TextChanged="TBoxSearch_TextChanged" Width="200" Height="25" FontSize="15"/>
+            </StackPanel>
+            <StackPanel Orientation="Vertical" Margin="10">
+                <RadioButton Content="По возрастанию стоимости" GroupName="Sort" FontSize="15" Name="RButtonUp" Checked="RButtonUp_Checked" VerticalAlignment="Center"/>
+                <RadioButton Content="По убыванию стоимости" GroupName="Sort" FontSize="15" Name="RButtonDown" Checked="RButtonDown_Checked" VerticalAlignment="Center"/>
+            </StackPanel>
+
+            <StackPanel Orientation="Vertical" Margin="10">
+                <TextBlock Text="Фильтрация по скидке" VerticalAlignment="Center" Width="180" FontSize="15"/>
+                <ComboBox Name="ComboType" SelectionChanged="ComboType_SelectionChanged" FontSize="15" Width="150" Height="25">
+                    <ComboBoxItem>Все диапазоны</ComboBoxItem>
+                    <ComboBoxItem>От 0-9,99%</ComboBoxItem>
+                    <ComboBoxItem>От 10-14,99%</ComboBoxItem>
+                    <ComboBoxItem>От 15% и более</ComboBoxItem>
+                </ComboBox>
+            </StackPanel>
+        </WrapPanel>
+        <ListView Grid.Row="2" Name="ProductListView" >
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <Grid>
@@ -35,20 +77,24 @@
                                 </Binding>
                             </Image.Source>
                         </Image>
-                        <TextBlock Text="{Binding ProductName}" Grid.Column="1" Grid.Row="0" HorizontalAlignment="Left" FontSize="20" FontWeight="Bold" TextWrapping="Wrap"></TextBlock> <!-- название -->
-                        <TextBlock Text="{Binding ProductDescription}" Grid.Column="1" Grid.Row="1" HorizontalAlignment="Left" FontSize="20" ></TextBlock> <!--описание-->
-                        <TextBlock Text="{Binding ProductManufacturer}" Grid.Column="1" Grid.Row="2" HorizontalAlignment="Left" FontSize="20" ></TextBlock> <!--производитель-->
-                        <TextBlock Text="{Binding ProductCost, StringFormat={}{0} рублей}" Grid.Column="1" Grid.Row="3" HorizontalAlignment="Left" FontSize="20" ></TextBlock> <!--цена-->
-                        
+                        <TextBlock Text="{Binding ProductName}" Grid.Column="1" Grid.Row="0" HorizontalAlignment="Left" FontSize="20" FontWeight="Bold" TextWrapping="Wrap"></TextBlock>
+                        <!-- название -->
+                        <TextBlock Text="{Binding ProductDescription}" Grid.Column="1" Grid.Row="1" HorizontalAlignment="Left" FontSize="20" ></TextBlock>
+                        <!--описание-->
+                        <TextBlock Text="{Binding ProductManufacturer}" Grid.Column="1" Grid.Row="2" HorizontalAlignment="Left" FontSize="20" ></TextBlock>
+                        <!--производитель-->
+                        <TextBlock Text="{Binding ProductCost, StringFormat={}{0} рублей}" Grid.Column="1" Grid.Row="3" HorizontalAlignment="Left" FontSize="20" ></TextBlock>
+                        <!--цена-->
+
                         <TextBlock Text="Скидка" Grid.Row="0" Grid.Column="2" FontSize="14" HorizontalAlignment="Right" VerticalAlignment="Center"/>
                         <TextBlock Text="{Binding ProductDiscountAmount, StringFormat={}{0}%}" Grid.Row="1" Grid.RowSpan="3" Grid.Column="2" FontWeight="Bold" FontSize="30" HorizontalAlignment="Right" VerticalAlignment="Center"/>
-        
+
 
                     </Grid>
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
-        
+
 
     </Grid>
 </Page>

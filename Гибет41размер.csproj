@@ -24,6 +24,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <UseVSHostingProcess>true</UseVSHostingProcess>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -64,6 +65,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="AuthPage.xaml.cs">
+      <DependentUpon>AuthPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Gibet41Model.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -91,6 +95,10 @@
       <DependentUpon>Gibet41Model.tt</DependentUpon>
     </Compile>
     <Page Include="AddEditPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="AuthPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -169,16 +177,6 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Gibet41Model.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>Gibet41Model.edmx</DependentUpon>
-      <LastGenOutput>Gibet41Model.Context.cs</LastGenOutput>
-    </Content>
-    <Content Include="Gibet41Model.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>Gibet41Model.edmx</DependentUpon>
-      <LastGenOutput>Gibet41Model.cs</LastGenOutput>
-    </Content>
     <Resource Include="Товар\B320R5.jpg" />
     <Resource Include="Товар\D329H3.jpg" />
     <Resource Include="Товар\D572U8.jpg" />
@@ -189,6 +187,18 @@
     <Resource Include="Товар\H782T5.jpg" />
     <Resource Include="Товар\J384T6.jpg" />
     <Resource Include="Товар\А112Т4.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Gibet41Model.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Gibet41Model.edmx</DependentUpon>
+      <LastGenOutput>Gibet41Model.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Gibet41Model.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Gibet41Model.edmx</DependentUpon>
+      <LastGenOutput>Gibet41Model.cs</LastGenOutput>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
