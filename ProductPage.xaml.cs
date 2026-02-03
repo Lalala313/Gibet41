@@ -24,9 +24,11 @@ namespace Гибет41размер
         int CountRecords; //все записи
         int SortedPage; //отсортированные записи
 
+
         private List<OrderProduct> selectedOrderProducts = new List<OrderProduct>();
         private List<Product> selectedProducts = new List<Product>();
         private int currentOrderID = 1;
+
         public ProductPage(User currentUser)
         {
             InitializeComponent();
@@ -59,6 +61,11 @@ namespace Гибет41размер
 
             var currentProduct = Gibet41Entities.GetContext().Product.Where(p => p.ProductQuantityInStock > 0).ToList();
 
+            
+
+
+            var currentProduct = Gibet41Entities.GetContext().Product.ToList();
+
             CountRecords = currentProduct.Count; //общее кол-во записей 
             ProductListView.ItemsSource = currentProduct;
             ComboType.SelectedIndex = 0;
@@ -74,6 +81,12 @@ namespace Гибет41размер
             CountRecords = currentProduct.Count;
 
             if (ComboType.SelectedIndex == 0)
+
+        private void UpdateServices()
+        {
+            var currentProduct = Gibet41Entities.GetContext().Product.ToList();
+            if(ComboType.SelectedIndex == 0)
+
             {
                 currentProduct = currentProduct.Where(p => (Convert.ToInt32(p.ProductDiscountAmount) >= 0 && Convert.ToInt32(p.ProductDiscountAmount) <= 100)).ToList();
             }
@@ -141,6 +154,7 @@ namespace Гибет41размер
             UpdateServices();
         }
 
+
         private void ProductListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
 
@@ -199,5 +213,6 @@ namespace Гибет41размер
             OrderButton.Visibility = selectedProducts.Count > 0 ? Visibility.Visible : Visibility.Collapsed;
 
         }
+
     }
 }

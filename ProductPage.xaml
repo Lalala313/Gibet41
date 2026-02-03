@@ -50,6 +50,7 @@
                     <ComboBoxItem>От 15% и более</ComboBoxItem>
                 </ComboBox>
             </StackPanel>
+
             <Button Name="OrderButton" Content="Просмотр заказа" FontSize="15" Click="OrderButton_Click" Visibility="Collapsed"></Button>
         </WrapPanel>
                       
@@ -59,6 +60,10 @@
                     <MenuItem Header="Добавить к заказу" Click="MenuItem_Click"></MenuItem>
                 </ContextMenu>
             </ListView.ContextMenu>
+
+
+        </WrapPanel>
+        <ListView Grid.Row="2" Name="ProductListView" >
 
             <ListView.ItemTemplate>
                 <DataTemplate>
@@ -96,6 +101,11 @@
 
                         <TextBlock Text="Скидка" Grid.Row="0" Grid.Column="2" FontSize="14" HorizontalAlignment="Right" VerticalAlignment="Center"/>
                         <TextBlock Text="{Binding ProductDiscountAmount, StringFormat={}{0}%}" Grid.Row="1" Grid.RowSpan="3" Grid.Column="2" FontWeight="Bold" FontSize="30" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+
+
+
+
+
                     </Grid>
                 </DataTemplate>
             </ListView.ItemTemplate>
