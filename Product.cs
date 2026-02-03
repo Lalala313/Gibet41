@@ -11,7 +11,7 @@ namespace Гибет41размер
 {
     using System;
     using System.Collections.Generic;
-    
+
     public partial class Product
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -19,7 +19,7 @@ namespace Гибет41размер
         {
             this.OrderProduct = new HashSet<OrderProduct>();
         }
-    
+
         public string ProductArticleNumber { get; set; }
         public string ProductName { get; set; }
         public string ProductUnit { get; set; }
@@ -33,8 +33,8 @@ namespace Гибет41размер
         public string ProductDescription { get; set; }
         public string ProductPhoto { get; set; }
         public string ProductStatus { get; set; }
-        public string ProductPhotoPath
-        {
+
+        public string ProductPhotoPath {
             get
             {
                 if (ProductPhoto == null)
@@ -42,10 +42,6 @@ namespace Гибет41размер
                 return "Товар/" + ProductPhoto;
             }
         }
-        //public int Quantity { get; set; }
-
-        //[System.ComponentModel.DataAnnotations.Schema.NotMapped]
-        public int QuantityInOrder { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<OrderProduct> OrderProduct { get; set; }

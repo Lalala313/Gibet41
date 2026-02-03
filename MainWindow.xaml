@@ -15,7 +15,7 @@
             <RowDefinition Height="*"/>
             <RowDefinition Height="30"/>
         </Grid.RowDefinitions>
-        <Grid Grid.Row="0" Background="#FFFFCC99" Margin="0" ></Grid>
+        <Grid Background="#FFFFCC99" ></Grid>
         <Grid Grid.Row="2" Background="#FFFFCC99" ></Grid>
         <TextBlock Text="41 размер" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="40"></TextBlock>
         <Image Source="/Images/logo.png" HorizontalAlignment="Left" />

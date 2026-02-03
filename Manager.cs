@@ -11,5 +11,4 @@ namespace Гибет41размер
     {
         public static Frame MainFrame { get; set; }
     }
-
 }

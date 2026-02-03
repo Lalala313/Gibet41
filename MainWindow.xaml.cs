@@ -23,7 +23,7 @@ namespace Гибет41размер
         public MainWindow()
         {
             InitializeComponent();
-            MainFrame.Navigate(new AuthPage());
+            MainFrame.Navigate(new ProductPage());
             Manager.MainFrame = MainFrame;
 
         }
